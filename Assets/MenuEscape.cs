@@ -6,7 +6,10 @@ public class MenuEscape : MonoBehaviour
 {
 
     public GameObject SettingsMenu;
-    
+    public GameObject Title;
+    public GameObject SettingsButton;
+    public GameObject PlayButton;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +23,13 @@ public class MenuEscape : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SettingsMenu.SetActive(!SettingsMenu.activeSelf);
-        
-            
+
+            SettingsButton.SetActive(!SettingsMenu.activeSelf);
+            Title.SetActive(!SettingsMenu.activeSelf);
+            PlayButton.SetActive(!SettingsMenu.activeSelf);
+           
+
+
         }
         
     }
