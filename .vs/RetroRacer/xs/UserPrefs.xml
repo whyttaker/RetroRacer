@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{E6F61121-A0DB-3E65-3FD2-718AF85C752F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MenuEscape.cs">
+    <Files>
+      <File FileName="Assets/MenuEscape.cs" Line="8" Column="37" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RetroRacer" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="MenuEscape.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0c6fb7dc-4390-41f0-8910-79dd7c9124f0" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
