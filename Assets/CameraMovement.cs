@@ -15,4 +15,28 @@ public class CameraMovement : MonoBehaviour
     {
         
     }
+
+    public void CameraAdvance()
+    {
+        
+        Camera.main.gameObject.transform.Translate(-16, -5, 39);
+
+        Camera.main.gameObject.transform.Rotate(5, 51, 0);
+
+
+
+
+    }
+
+    public void CameraMoveLeft()
+    {
+
+        Camera.main.gameObject.transform.Translate(0, 0, -12);
+    }
+
+    public void CameraMoveRight()
+    {
+        Camera.main.gameObject.transform.Translate(0, 0, 12);
+    }
+
 }
