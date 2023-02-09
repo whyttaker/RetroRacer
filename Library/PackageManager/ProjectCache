@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638096861306408728
-    m_Hash: 1463002328
+      ticks: 638115022000725641
+    m_Hash: 1673091210
   m_LockFileStatus:
     m_FilePath: C:/Users/User/Retro Racer/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638096861534947958
-    m_Hash: 230827022
+      ticks: 638115022000730741
+    m_Hash: 270827855
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -1063,6 +1063,54 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.7.8
+    nextVersion: 
+- packageId: de.thirteenpixels.gitmerge@https://github.com/FlaShG/GitMerge-for-Unity.git
+  testable: 0
+  isDirectDependency: 1
+  version: 0.1.0
+  source: 5
+  resolvedPath: C:\Users\User\Retro Racer\Library\PackageCache\de.thirteenpixels.gitmerge@7105918d5f
+  assetPath: Packages/de.thirteenpixels.gitmerge
+  name: de.thirteenpixels.gitmerge
+  displayName: GitMerge for Unity
+  author:
+    name: 13Pixels
+    email: assetstore@13pixels.de
+    url: https://www.13pixels.de
+  category: 
+  type: 
+  description: Allows merging scene, prefab and ScriptableObject files.
+  status: 4
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    verified: 
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - VCS
+  - Git
+  - Merging
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
     nextVersion: 
 - packageId: com.unity.modules.ai@1.0.0
   testable: 0
