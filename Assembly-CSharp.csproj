@@ -60,6 +60,7 @@
     <Compile Include="Assets/WheelsSpinnin.cs" />
     <Compile Include="Assets/QuitGame.cs" />
     <Compile Include="Assets/MenuEscape.cs" />
+    <Compile Include="Assets/CameraMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
