@@ -58,8 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets/CarMovement.cs" />
     <Compile Include="Assets/WheelsSpinnin.cs" />
-    <Compile Include="Assets/MenuEscape.cs" />
     <Compile Include="Assets/QuitGame.cs" />
+    <Compile Include="Assets/MenuEscape.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -741,8 +741,8 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="ThirteenPixels.GitMerge">
+      <HintPath>Library/ScriptAssemblies/ThirteenPixels.GitMerge.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -752,6 +752,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -782,9 +785,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="ThirteenPixels.GitMerge">
-      <HintPath>Library/ScriptAssemblies/ThirteenPixels.GitMerge.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
