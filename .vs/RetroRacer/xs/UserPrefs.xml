@@ -1,8 +1,5 @@
 ﻿<Properties StartupConfiguration="{E6F61121-A0DB-3E65-3FD2-718AF85C752F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MenuEscape.cs">
-    <Files>
-      <File FileName="Assets/MenuEscape.cs" Line="8" Column="37" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
