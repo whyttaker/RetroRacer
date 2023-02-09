@@ -6,10 +6,29 @@ public class CameraMovement : MonoBehaviour
 {
     public float rightMoves = 0;
     public float leftMoves = 0;
+
+    public GameObject currentCar;
+
+
+    public GameObject SpeedSlider;
+    public GameObject AccelSlider;
+    public GameObject HandleSlider;
+
+    public Component[] Car_Array;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Car_Array = currentCar.GetComponentsInChildren(typeof(CarMovement));
+
+        int index = 0;
+        foreach (CarMovement car in Car_Array)
+        {
+            index++;
+            Debug.Log("Car number: " + index + " " + car.m_Speed);
+
+        }
+
     }
 
     // Update is called once per frame
@@ -63,6 +82,18 @@ public class CameraMovement : MonoBehaviour
             
 
         }
+    }
+
+
+    public void updateSliders()
+    {
+        int carIndex = Car_Array.Length/2;
+
+        
+
+
+
+
     }
 
 }

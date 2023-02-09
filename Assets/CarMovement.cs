@@ -6,7 +6,9 @@ public class CarMovement : MonoBehaviour
 {
     public int m_PlayerNumber = 1;         
     public float m_Speed = 12f;            
-    public float m_TurnSpeed = 180f;       
+    public float m_TurnSpeed = 180f;
+    public float m_Accel = 50;
+    public float m_Handling = 0;
     // public AudioSource m_MovementAudio;    
     // public AudioClip m_EngineIdling;       
     // public AudioClip m_EngineDriving;      
