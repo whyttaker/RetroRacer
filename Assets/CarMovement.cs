@@ -14,22 +14,22 @@ public class CarMovement : MonoBehaviour
     // public AudioClip m_EngineDriving;      
     public float m_PitchRange = 0.2f;
 
-    
-    private string m_MovementAxisName;     
-    private string m_TurnAxisName;         
-    private Rigidbody m_Rigidbody;         
-    private float m_MovementInputValue;    
-    private float m_TurnInputValue;        
-    private float m_OriginalPitch;         
+
+    public string m_MovementAxisName;
+    public string m_TurnAxisName;
+    public Rigidbody m_Rigidbody;
+    public float m_MovementInputValue;
+    public float m_TurnInputValue;
+    public float m_OriginalPitch;
 
 
-    private void Awake()
+    public void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
     }
 
 
-    private void OnEnable ()
+    public void OnEnable ()
     {
         m_Rigidbody.isKinematic = false;
         m_MovementInputValue = 0f;
@@ -37,24 +37,26 @@ public class CarMovement : MonoBehaviour
     }
 
 
-    private void OnDisable ()
+    public void OnDisable ()
     {
         m_Rigidbody.isKinematic = true;
     }
 
 
-    private void Start()
+    public void Start()
     {
         m_MovementAxisName = "Vertical";
         m_TurnAxisName = "Horizontal";
 
         //m_OriginalPitch = m_MovementAudio.pitch;
     }
-    
 
-    private void Update()
+
+    public void Update()
     {
+        Debug.Log("Ran the update function");
         m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
+        Debug.Log("Value is: " + m_MovementInputValue);
         m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
         //EngineAudio();
     }
@@ -79,7 +81,7 @@ public class CarMovement : MonoBehaviour
     // }
 
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         // Move and turn the tank.
         Move();
@@ -87,7 +89,7 @@ public class CarMovement : MonoBehaviour
     }
 
 
-    private void Move()
+     public void Move()
     {
         // Adjust the position of the tank based on the player's input.
         Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
@@ -95,7 +97,7 @@ public class CarMovement : MonoBehaviour
     }
 
 
-    private void Turn()
+    public void Turn()
     {
         // Adjust the rotation of the tank based on the player's input.
         float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;

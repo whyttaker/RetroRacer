@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour
     public GameObject AccelSlider;
     public GameObject HandleSlider;
 
+
     public CarMovement[] Car_Array;
     int carIndex = 0;
 
@@ -72,7 +73,7 @@ public class CameraMovement : MonoBehaviour
         float x = Camera.main.gameObject.transform.position.x;
         float y = Camera.main.gameObject.transform.position.y;
         Debug.Log("Current X: " + x + " Current Y: " + y + " Current Z: " + z);
-        Debug.Log("cararraylen = " + Car_Array.Length );
+        //Debug.Log("cararraylen = " + Car_Array.Length );
         if (carIndex > 0)
         {
             Camera.main.gameObject.transform.Translate(12, 0, 0);
@@ -84,18 +85,18 @@ public class CameraMovement : MonoBehaviour
 
     public void updateSliders()
     {
-        float speedx = SpeedSlider.transform.GetChild(2).GetChild(0).position.x;
+        //float speedx = SpeedSlider.transform.GetChild(2).GetChild(0).position.x;
         float speedy = SpeedSlider.transform.GetChild(2).GetChild(0).position.y;
         float speedz = SpeedSlider.transform.GetChild(2).GetChild(0).position.z;
-        SpeedSlider.transform.GetChild(2).GetChild(0).position = new Vector3 (600 + Car_Array[carIndex].m_Speed/2,speedy,speedz);
-        float accx = AccelSlider.transform.GetChild(2).GetChild(0).position.x;
+        SpeedSlider.transform.GetChild(2).GetChild(0).position = new Vector3 (1050 + Car_Array[carIndex].m_Speed/2,speedy,speedz);
+        //float accx = AccelSlider.transform.GetChild(2).GetChild(0).position.x;
         float accy = AccelSlider.transform.GetChild(2).GetChild(0).position.y;
         float accz = AccelSlider.transform.GetChild(2).GetChild(0).position.z;
-        AccelSlider.transform.GetChild(2).GetChild(0).position = new Vector3 (600 + Car_Array[carIndex].m_Accel/2,accy,accz);
-        float handx = HandleSlider.transform.GetChild(2).GetChild(0).position.x;
+        AccelSlider.transform.GetChild(2).GetChild(0).position = new Vector3 (1050 + Car_Array[carIndex].m_Accel/2,accy,accz);
+        //float handx = HandleSlider.transform.GetChild(2).GetChild(0).position.x;
         float handy = HandleSlider.transform.GetChild(2).GetChild(0).position.y;
         float handz = HandleSlider.transform.GetChild(2).GetChild(0).position.z;
-        HandleSlider.transform.GetChild(2).GetChild(0).position = new Vector3(600 + Car_Array[carIndex].m_Handling/2,handy,handz);
+        HandleSlider.transform.GetChild(2).GetChild(0).position = new Vector3(1050 + Car_Array[carIndex].m_Handling/2,handy,handz);
 
 
         // float speedx = SpeedSlider.transform.GetChild(1).position.x;
@@ -110,6 +111,31 @@ public class CameraMovement : MonoBehaviour
         // float handy = HandleSlider.transform.GetChild(1).position.y;
         // float handz = HandleSlider.transform.GetChild(1).position.z;
         // HandleSlider.transform.GetChild(1).position = new Vector3(600 + Car_Array[carIndex].m_Handling/2,handy,handz);
+    }
+
+    public void SelectCar()
+    {
+
+        //Select the car at Car_Array[index], then delete all other cars
+
+        GameObject selectedCar = Car_Array[carIndex].transform.parent.gameObject;
+
+        //Delete cars
+        for (int i=0; i < Car_Array.Length; i++)
+        {
+            if(i != carIndex)
+            {
+                Destroy(Car_Array[i].transform.gameObject, 0);
+            }
+
+        }
+
+        //Move cam
+        Camera.main.gameObject.transform.position = new Vector3(Car_Array[carIndex].transform.gameObject.transform.position.x + 40,
+                                                                Car_Array[carIndex].transform.gameObject.transform.position.y + 77,
+                                                                Car_Array[carIndex].transform.gameObject.transform.position.z + 1);
+        Camera.main.gameObject.transform.Rotate(65, 180, 0);
+
     }
 
 }
