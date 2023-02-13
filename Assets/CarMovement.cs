@@ -102,4 +102,10 @@ public class CarMovement : MonoBehaviour
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
     }
+
+    public void SpeedUp()
+    {
+        // if overlap with speed up -> get duration, get speed boost
+        // for duration, apply speed boost
+    }
 }
