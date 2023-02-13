@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -13,15 +14,19 @@ public class CameraMovement : MonoBehaviour
     public GameObject SpeedSlider;
     public GameObject AccelSlider;
     public GameObject HandleSlider;
+    public CinemachineVirtualCamera VCam;
 
-
+    //public Transform[] cars;
     public CarMovement[] Car_Array;
     int carIndex = 0;
+
+    public Camera CarCam;
 
     // Start is called before the first frame update
     void Start()
     {
         carIndex = Car_Array.Length/2;
+        CarCam.enabled = false;
 
     }
 
@@ -121,20 +126,25 @@ public class CameraMovement : MonoBehaviour
         GameObject selectedCar = Car_Array[carIndex].transform.parent.gameObject;
 
         //Delete cars
-        for (int i=0; i < Car_Array.Length; i++)
+        for (int i=Car_Array.Length-1; i >=0 ; i--)
         {
             if(i != carIndex)
             {
+                Debug.Log(Car_Array[i]);
                 Destroy(Car_Array[i].transform.gameObject, 0);
             }
-
+            
         }
-
+        
+        CarCam.enabled = true;
+        // VCam.Follow = cars[0];
+        // VCam.LookAt = cars[0];
+        this.gameObject.SetActive(false);
         //Move cam
-        Camera.main.gameObject.transform.position = new Vector3(Car_Array[carIndex].transform.gameObject.transform.position.x + 40,
-                                                                Car_Array[carIndex].transform.gameObject.transform.position.y + 77,
-                                                                Car_Array[carIndex].transform.gameObject.transform.position.z + 1);
-        Camera.main.gameObject.transform.Rotate(65, 180, 0);
+        // Camera.main.gameObject.transform.position = new Vector3(Car_Array[0].transform.gameObject.transform.position.x + 40,
+        //                                                         Car_Array[0].transform.gameObject.transform.position.y + 77,
+        //                                                         Car_Array[0].transform.gameObject.transform.position.z + 1);
+        // Camera.main.gameObject.transform.Rotate(65, 180, 0);
 
     }
 

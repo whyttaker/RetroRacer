@@ -54,9 +54,7 @@ public class CarMovement : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log("Ran the update function");
         m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        Debug.Log("Value is: " + m_MovementInputValue);
         m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
         //EngineAudio();
     }
