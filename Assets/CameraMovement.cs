@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
 {
     public float rightMoves = 0;
     public float leftMoves = 0;
+   
 
     public GameObject currentCar;
 

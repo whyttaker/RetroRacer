@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
@@ -13,7 +14,7 @@ public class CarMovement : MonoBehaviour
     // public AudioClip m_EngineIdling;       
     // public AudioClip m_EngineDriving;      
     public float m_PitchRange = 0.2f;
-
+    public float boost = 0;
 
     public string m_MovementAxisName;
     public string m_TurnAxisName;
@@ -21,6 +22,11 @@ public class CarMovement : MonoBehaviour
     public float m_MovementInputValue;
     public float m_TurnInputValue;
     public float m_OriginalPitch;
+
+    public Slider BoostSlider;
+    
+
+    public GameObject[] Sliders = GameObject.FindGameObjectsWithTag("Boost");
 
     public bool m_Inverted = false; 
 
@@ -58,6 +64,9 @@ public class CarMovement : MonoBehaviour
     {
         m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
         m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
+        boost += 0.1f;
+        BoostSlider.value = boost;
+        BoostSlider.maxValue = 120;
         //EngineAudio();
     }
 
