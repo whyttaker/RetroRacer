@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedUp : MonoBehaviour, IPowerUp
-{
-    public float SpeedMultiplier = 2f; //how many times faster the car will go
-    public float EffectDuration = 3f; //how long the power up will be effecting the player
-    public float MaxLifeTime = 3f; //how long the power up will be on the stage
+{   
+    [Tooltip("How many times faster the car will go.")]
+    public float SpeedMultiplier = 2f; 
+
+    [Tooltip("How long the power up will be effecting the player.")]
+    public float EffectDuration = 3f; 
+
+    [Tooltip("How long the Speed Up power up will live.")]
+    public float MaxLifeTime = 5f; 
 
     // Start is called before the first frame update
     void Start()

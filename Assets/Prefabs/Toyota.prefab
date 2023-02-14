@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 746611163043600169}
   - component: {fileID: 746611163043600168}
   - component: {fileID: 1661712895}
+  - component: {fileID: 2090388970}
   m_Layer: 0
   m_Name: Toyota
   m_TagString: Player
@@ -88,6 +89,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.5, y: 5.5, z: 18.5}
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &2090388970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746611163043600171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689c57014b295f64ba9094aa0ac019b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerMovement: {fileID: 746611163043600169}
 --- !u!1 &854785665812442081
 GameObject:
   m_ObjectHideFlags: 0
