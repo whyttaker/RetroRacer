@@ -4051,7 +4051,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153498581}
-  m_LocalRotation: {x: 0.35218212, y: -0.61316216, z: 0.35218215, w: 0.6131621}
+  m_LocalRotation: {x: 0.35218212, y: -0.6131621, z: 0.3521821, w: 0.61316216}
   m_LocalPosition: {x: 1501.1792, y: 64.9, z: -26.448391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4252,7 +4252,7 @@ GameObject:
   - component: {fileID: 1264982056}
   - component: {fileID: 1264982055}
   - component: {fileID: 1264982059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Street
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4345,7 +4345,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264982054}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -6556,7 +6556,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784060570}
-  m_LocalRotation: {x: 0.35218212, y: -0.61316216, z: 0.35218215, w: 0.6131621}
+  m_LocalRotation: {x: 0.35218212, y: -0.6131621, z: 0.3521821, w: 0.61316216}
   m_LocalPosition: {x: 1501.1792, y: 64.9, z: -26.448391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
