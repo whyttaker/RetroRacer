@@ -22,6 +22,8 @@ public class CarMovement : MonoBehaviour
     public float m_TurnInputValue;
     public float m_OriginalPitch;
 
+    public bool m_Inverted = false; 
+
 
     public void Awake()
     {
@@ -99,6 +101,11 @@ public class CarMovement : MonoBehaviour
     {
         // Adjust the rotation of the tank based on the player's input.
         float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;
+
+        if (m_Inverted)
+        {
+            turn = turn * -1; // if inverted -> flip turn direction
+        }
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
     }

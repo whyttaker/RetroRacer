@@ -16,6 +16,10 @@ public class CarPowerUpEffects : MonoBehaviour
     private bool m_IsSpeedDown = false;
     private float m_baseSpeed;
 
+    // invert controls related member variables
+    private float m_InvertDur = 0f;
+    private bool m_IsInverted = false;
+
 
     public void Awake()
     {
@@ -35,9 +39,8 @@ public class CarPowerUpEffects : MonoBehaviour
 
             if (PowerUp is SpeedUp) // toggle speed up effects on
             {
-                Debug.Log("picked up a speed up");
                 m_IsSpeedUp = true;
-                m_SpeedDur = PowerUp.GetDuration();
+                m_SpeedDur = m_PowUpDur;
                 if(m_IsSpeedDown)
                 {
                     m_IsSpeedDown = false; //toggle off previous speed down
@@ -46,13 +49,18 @@ public class CarPowerUpEffects : MonoBehaviour
 
             else if (PowerUp is SpeedDown)
             {
-                Debug.Log("picked up speed down");
                 m_IsSpeedDown = true;
-                m_SpeedDur = PowerUp.GetDuration();
+                m_SpeedDur = m_PowUpDur;
                 if(m_IsSpeedUp)
                 {
                     m_IsSpeedUp = false; //toggle off previous speed up
                 }
+            }
+
+            else if (PowerUp is InvertControls)
+            {
+                m_IsInverted = true;
+                m_InvertDur = m_PowUpDur;
             }
         }
     }
@@ -66,11 +74,13 @@ public class CarPowerUpEffects : MonoBehaviour
             m_SpeedDur -= Time.deltaTime;
             if (m_IsSpeedUp)
             {
+                // speed up the car
                 float newSpeed = m_baseSpeed * m_PowUpVal;
                 m_PlayerMovement.m_Speed = newSpeed;
             }
             else if (m_IsSpeedDown)
             {
+                // slow down the car
                 float newSpeed = m_baseSpeed / m_PowUpVal;
                 m_PlayerMovement.m_Speed = newSpeed;
                 Debug.Log(newSpeed);
@@ -79,15 +89,34 @@ public class CarPowerUpEffects : MonoBehaviour
         }
         else
         {
+            // reset to base speed and toggle the power ups off
+            m_PlayerMovement.m_Speed = m_baseSpeed;
+
             if (m_IsSpeedUp)
             {
-                m_PlayerMovement.m_Speed = m_baseSpeed;
                 m_IsSpeedUp = false;
             }
             else if (m_IsSpeedDown)
             {
-                m_PlayerMovement.m_Speed = m_baseSpeed;
                 m_IsSpeedDown = false;
+            }
+        }
+        
+        if (m_InvertDur > 0f)
+        {
+            m_InvertDur -= Time.deltaTime;
+            if (m_IsInverted)
+            {
+                // invert car controls
+                m_PlayerMovement.m_Inverted = true;
+            }
+        }
+        else
+        {
+            // toggle inverted controls back off
+            if (m_IsInverted)
+            {
+                m_PlayerMovement.m_Inverted = false;
             }
         }
     }
