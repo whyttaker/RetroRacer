@@ -7,11 +7,13 @@ public class CarPowerUpEffects : MonoBehaviour
     [Tooltip("The movement script that will be adjusted by the different power ups.")]
     public CarMovement m_PlayerMovement;
 
-    private float m_PowUpDur;
-    private float m_PowUpVal;
-    private float m_TimePassed;
+    private float m_PowUpDur = 0f;
+    private float m_PowUpVal = 0f;
 
+    // car speed related member variables
+    private float m_SpeedDur = 0f; // both speeds share a timer so they can override each other smoothly
     private bool m_IsSpeedUp = false;
+    private bool m_IsSpeedDown = false;
     private float m_baseSpeed;
 
 
@@ -33,7 +35,24 @@ public class CarPowerUpEffects : MonoBehaviour
 
             if (PowerUp is SpeedUp) // toggle speed up effects on
             {
+                Debug.Log("picked up a speed up");
                 m_IsSpeedUp = true;
+                m_SpeedDur = PowerUp.GetDuration();
+                if(m_IsSpeedDown)
+                {
+                    m_IsSpeedDown = false; //toggle off previous speed down
+                }
+            }
+
+            else if (PowerUp is SpeedDown)
+            {
+                Debug.Log("picked up speed down");
+                m_IsSpeedDown = true;
+                m_SpeedDur = PowerUp.GetDuration();
+                if(m_IsSpeedUp)
+                {
+                    m_IsSpeedUp = false; //toggle off previous speed up
+                }
             }
         }
     }
@@ -41,15 +60,22 @@ public class CarPowerUpEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //countdown for timer
-        if (m_PowUpDur > 0f)
+        //countdown for SpeedDur timer
+        if (m_SpeedDur > 0f)
         {
-            m_PowUpDur -= Time.deltaTime;
+            m_SpeedDur -= Time.deltaTime;
             if (m_IsSpeedUp)
             {
                 float newSpeed = m_baseSpeed * m_PowUpVal;
                 m_PlayerMovement.m_Speed = newSpeed;
             }
+            else if (m_IsSpeedDown)
+            {
+                float newSpeed = m_baseSpeed / m_PowUpVal;
+                m_PlayerMovement.m_Speed = newSpeed;
+                Debug.Log(newSpeed);
+            }
+
         }
         else
         {
@@ -57,6 +83,11 @@ public class CarPowerUpEffects : MonoBehaviour
             {
                 m_PlayerMovement.m_Speed = m_baseSpeed;
                 m_IsSpeedUp = false;
+            }
+            else if (m_IsSpeedDown)
+            {
+                m_PlayerMovement.m_Speed = m_baseSpeed;
+                m_IsSpeedDown = false;
             }
         }
     }

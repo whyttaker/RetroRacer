@@ -5,18 +5,18 @@ using UnityEngine;
 public class SpeedUp : MonoBehaviour, IPowerUp
 {   
     [Tooltip("How many times faster the car will go.")]
-    public float SpeedMultiplier = 2f; 
+    public float m_SpeedMultiplier = 2f; 
 
-    [Tooltip("How long the power up will be effecting the player.")]
-    public float EffectDuration = 3f; 
+    [Tooltip("How long the Speed Up power up will be effecting the player.")]
+    public float m_EffectDuration = 3f; 
 
     [Tooltip("How long the Speed Up power up will live.")]
-    public float MaxLifeTime = 5f; 
+    public float m_MaxLifeTime = 5f; 
 
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, MaxLifeTime);
+        Destroy(gameObject, m_MaxLifeTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,11 +27,11 @@ public class SpeedUp : MonoBehaviour, IPowerUp
 
     public float GetValue()
     {
-        return SpeedMultiplier;
+        return m_SpeedMultiplier;
     }
 
     public float GetDuration()
     {
-        return EffectDuration;
+        return m_EffectDuration;
     }
 }
