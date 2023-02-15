@@ -14,7 +14,10 @@ public class CarMovement : MonoBehaviour
     // public AudioClip m_EngineIdling;       
     // public AudioClip m_EngineDriving;      
     public float m_PitchRange = 0.2f;
-    public float boost = 0;
+    public float m_Boost = 0;
+    public float m_BoostVal = 0.1f;
+    public float m_BoostMult = 1f;
+    public float m_MaxBoost = 120f;
 
     public string m_MovementAxisName;
     public string m_TurnAxisName;
@@ -26,7 +29,7 @@ public class CarMovement : MonoBehaviour
     public Slider BoostSlider;
     
 
-    public GameObject[] Sliders = GameObject.FindGameObjectsWithTag("Boost");
+    public GameObject[] Sliders;
 
     public bool m_Inverted = false; 
 
@@ -34,6 +37,7 @@ public class CarMovement : MonoBehaviour
     public void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        Sliders = GameObject.FindGameObjectsWithTag("Boost");
     }
 
 
@@ -64,9 +68,11 @@ public class CarMovement : MonoBehaviour
     {
         m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
         m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
-        boost += 0.1f;
-        BoostSlider.value = boost;
-        BoostSlider.maxValue = 120;
+
+        m_Boost += m_BoostVal * m_BoostMult; // default mult is 1f, changes if picks up boost multiplier power up :D
+
+        BoostSlider.value = m_Boost;
+        BoostSlider.maxValue = m_MaxBoost;
         //EngineAudio();
     }
 

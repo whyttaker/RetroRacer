@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvertControls : MonoBehaviour, IPowerUp
+public class BoostBonus : MonoBehaviour, IPowerUp
 {
-    [Tooltip("How long the Invert Controls power up will be effecting the player.")]
-    public float m_EffectDuration = 3f;
+    [Tooltip("How many boost points the car will earn when picking up a Boost Bonus power up")] 
+    //might want to change this to be a percentage of the bar gained later
+    public float m_BoostBonus = 30f;
 
-    [Tooltip("How long the Invert Controls power up will live.")]
+    private float m_EffectDuration = 0f; // instant so duration doesn't matter for this power up
+
+    [Tooltip("How long the Boost Bonus power up will live.")]
     public float m_MaxLifeTime = 5f;
 
     // Start is called before the first frame update
@@ -24,8 +27,7 @@ public class InvertControls : MonoBehaviour, IPowerUp
 
     public float GetValue()
     {
-        return 0f; // here to satisfy the interface lol
-        // I originally thought of using a -1 multiplier to invert the controls but then I remembered I could just use a bool instead
+        return m_BoostBonus;
     }
 
     public float GetDuration()
