@@ -95,7 +95,7 @@ public class CarPowerUpEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_IsBoostMult);
+        // Debug.Log(m_IsBoostMult);
         //countdown for SpeedDur timer
         if (m_SpeedDur > 0f)
         {

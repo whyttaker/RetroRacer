@@ -32,6 +32,7 @@ public class CarMovement : MonoBehaviour
     public GameObject[] Sliders;
 
     public bool m_Inverted = false; 
+    public bool m_isDrifting = false;
 
 
     public void Awake()
@@ -68,9 +69,9 @@ public class CarMovement : MonoBehaviour
     {
         m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
         m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
-
-        m_Boost += m_BoostVal * m_BoostMult; // default mult is 1f, changes if picks up boost multiplier power up :D
-
+        if(m_isDrifting){
+            m_Boost += m_BoostVal * m_BoostMult; // default mult is 1f, changes if picks up boost multiplier power up :D
+        }
         BoostSlider.value = m_Boost;
         BoostSlider.maxValue = m_MaxBoost;
         //EngineAudio();

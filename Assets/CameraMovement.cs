@@ -29,6 +29,7 @@ public class CameraMovement : MonoBehaviour
         carIndex = Car_Array.Length/2;
         CarCam.enabled = false;
 
+
     }
 
     void Active()
@@ -65,10 +66,10 @@ public class CameraMovement : MonoBehaviour
         float y = Camera.main.gameObject.transform.position.y;
         Debug.Log("Current X: " + x + " Current Y: " + y + " Current Z: " + z);
         Debug.Log("cararraylen = " + Car_Array.Length );
-        if (carIndex < Car_Array.Length-1)
+        if (carIndex > 0)
         {
             Camera.main.gameObject.transform.Translate(-12, 0, 0);
-            carIndex++;
+            carIndex--;
         }
         updateSliders();
     }
@@ -79,8 +80,8 @@ public class CameraMovement : MonoBehaviour
         float x = Camera.main.gameObject.transform.position.x;
         float y = Camera.main.gameObject.transform.position.y;
         Debug.Log("Current X: " + x + " Current Y: " + y + " Current Z: " + z);
-        //Debug.Log("cararraylen = " + Car_Array.Length );
-        if (carIndex > 0)
+        Debug.Log("cararraylen = " + Car_Array.Length );
+        if (carIndex < Car_Array.Length)
         {
             Camera.main.gameObject.transform.Translate(12, 0, 0);
             carIndex--;
