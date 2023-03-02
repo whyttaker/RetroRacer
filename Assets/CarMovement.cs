@@ -19,6 +19,8 @@ public class CarMovement : MonoBehaviour
     public float m_BoostMult = 1f;
     public float m_MaxBoost = 120f;
 
+    public bool keyInIgnition = false;
+
     public string m_MovementAxisName;
     public string m_TurnAxisName;
     public Rigidbody m_Rigidbody;
@@ -108,21 +110,45 @@ public class CarMovement : MonoBehaviour
      public void Move()
     {
         // Adjust the position of the tank based on the player's input.
-        Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
-        m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+        if (keyInIgnition)
+        {
+            Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
+            m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+
+        }
+        
     }
 
 
     public void Turn()
     {
-        // Adjust the rotation of the tank based on the player's input.
-        float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;
-
-        if (m_Inverted)
+        if (keyInIgnition)
         {
-            turn = turn * -1; // if inverted -> flip turn direction
+
+
+            // Adjust the rotation of the tank based on the player's input.
+            float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;
+
+            if (m_Inverted)
+            {
+                turn = turn * -1; // if inverted -> flip turn direction
+            }
+            Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+            m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
+
         }
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
+    }
+
+
+    public void ToggleControl()
+    {
+        if (keyInIgnition)
+        {
+            keyInIgnition = false;
+        }
+        else
+        {
+            keyInIgnition = true;
+        }
     }
 }
