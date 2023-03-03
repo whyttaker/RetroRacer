@@ -113,7 +113,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GridColor: {r: 2.118547, g: 0, b: 2.118547, a: 1}
-    - _GridSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _GridSpeed: {r: 0, g: 1, b: 0, a: 0}
     - _GroundColor: {r: 0.1372549, g: 0, b: 0.2470588, a: 1}
-    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Tiling: {r: 5.14, g: 379.4, b: 0, a: 0}
   m_BuildTextureStacks: []

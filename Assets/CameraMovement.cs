@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class CameraMovement : MonoBehaviour
 
     public GameObject currentCar;
 
+    public Slider SpeedSlider;
+    public Slider AccelSlider;
+    public Slider HandleSlider;
 
-    public GameObject SpeedSlider;
-    public GameObject AccelSlider;
-    public GameObject HandleSlider;
+
+
     public CinemachineVirtualCamera VCam;
 
     //public Transform[] cars;
@@ -29,8 +32,6 @@ public class CameraMovement : MonoBehaviour
     {
         carIndex = Car_Array.Length/2;
         CarCam.enabled = false;
-
-
     }
 
     void Active()
@@ -56,7 +57,8 @@ public class CameraMovement : MonoBehaviour
 
     public void CameraAdvance()
     {
-        Camera.main.gameObject.transform.Translate(-16, -5, 39);
+        
+        Camera.main.gameObject.transform.Translate(-16, -5, 51);
         Camera.main.gameObject.transform.Rotate(5, 51, 0);
     }
 
@@ -90,11 +92,11 @@ public class CameraMovement : MonoBehaviour
         float y = Camera.main.gameObject.transform.position.y;
         Debug.Log("Current X: " + x + " Current Y: " + y + " Current Z: " + z);
         Debug.Log("cararraylen = " + Car_Array.Length );
-        if (carIndex < Car_Array.Length)
+        if (carIndex < Car_Array.Length-1)
         {
             Camera.main.gameObject.transform.Translate(12, 0, 0);
             CameraOrigin.x -= 12;
-            carIndex--;
+            carIndex++;
         }
         updateSliders();
     }
@@ -102,32 +104,11 @@ public class CameraMovement : MonoBehaviour
 
     public void updateSliders()
     {
-        //float speedx = SpeedSlider.transform.GetChild(2).GetChild(0).position.x;
-        float speedy = SpeedSlider.transform.GetChild(2).GetChild(0).position.y;
-        float speedz = SpeedSlider.transform.GetChild(2).GetChild(0).position.z;
-        SpeedSlider.transform.GetChild(2).GetChild(0).position = new Vector3 (1050 + Car_Array[carIndex].m_Speed/2,speedy,speedz);
-        //float accx = AccelSlider.transform.GetChild(2).GetChild(0).position.x;
-        float accy = AccelSlider.transform.GetChild(2).GetChild(0).position.y;
-        float accz = AccelSlider.transform.GetChild(2).GetChild(0).position.z;
-        AccelSlider.transform.GetChild(2).GetChild(0).position = new Vector3 (1050 + Car_Array[carIndex].m_Accel/2,accy,accz);
-        //float handx = HandleSlider.transform.GetChild(2).GetChild(0).position.x;
-        float handy = HandleSlider.transform.GetChild(2).GetChild(0).position.y;
-        float handz = HandleSlider.transform.GetChild(2).GetChild(0).position.z;
-        HandleSlider.transform.GetChild(2).GetChild(0).position = new Vector3(1050 + Car_Array[carIndex].m_Handling/2,handy,handz);
 
+        SpeedSlider.value = Car_Array[carIndex].m_Speed;
+        AccelSlider.value = Car_Array[carIndex].m_Accel;
+        HandleSlider.value = Car_Array[carIndex].m_Handling;
 
-        // float speedx = SpeedSlider.transform.GetChild(1).position.x;
-        // float speedy = SpeedSlider.transform.GetChild(1).position.y;
-        // float speedz = SpeedSlider.transform.GetChild(1).position.z;
-        // SpeedSlider.transform.GetChild(1).position = new Vector3 (600 + Car_Array[carIndex].m_Speed/2,speedy,speedz);
-        // float accx = AccelSlider.transform.GetChild(1).position.x;
-        // float accy = AccelSlider.transform.GetChild(1).position.y;
-        // float accz = AccelSlider.transform.GetChild(1).position.z;
-        // AccelSlider.transform.GetChild(1).position = new Vector3 (600 + Car_Array[carIndex].m_Accel/2,accy,accz);
-        // float handx = HandleSlider.transform.GetChild(1).position.x;
-        // float handy = HandleSlider.transform.GetChild(1).position.y;
-        // float handz = HandleSlider.transform.GetChild(1).position.z;
-        // HandleSlider.transform.GetChild(1).position = new Vector3(600 + Car_Array[carIndex].m_Handling/2,handy,handz);
     }
 
     public void SelectCar()
@@ -191,15 +172,8 @@ public class CameraMovement : MonoBehaviour
         }
 
         CarCam.enabled = true;
-        // VCam.Follow = cars[0];
-        // VCam.LookAt = cars[0];
-        this.gameObject.SetActive(false);
-        //Move cam
-        // Camera.main.gameObject.transform.position = new Vector3(Car_Array[0].transform.gameObject.transform.position.x + 40,
-        //                                                         Car_Array[0].transform.gameObject.transform.position.y + 77,
-        //                                                         Car_Array[0].transform.gameObject.transform.position.z + 1);
-        // Camera.main.gameObject.transform.Rotate(65, 180, 0);
-
+        VCam.LookAt = Car_Array[carIndex].transform;
+        VCam.Follow = Car_Array[carIndex].transform;
     }
 
 }
