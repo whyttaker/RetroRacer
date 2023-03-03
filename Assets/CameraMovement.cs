@@ -31,7 +31,6 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         carIndex = Car_Array.Length/2;
-        CarCam.enabled = false;
     }
 
     void Active()
@@ -42,17 +41,6 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(Car_Array.Length == 0){
-        //     //Car_Array = (CarMovement[])currentCar.GetComponentsInChildren(typeof(CarMovement));
-        //     carIndex = Car_Array.Length/2;
-        //     int index = 0;
-        //     foreach (CarMovement car in Car_Array)
-        //     {
-        //         index++;
-        //         Debug.Log("Car number: " + index + " " + car.m_Speed);
-
-        //     }
-        // }
     }
 
     public void CameraAdvance()
@@ -123,15 +111,14 @@ public class CameraMovement : MonoBehaviour
         {
             if(i != carIndex)
             {
-                Debug.Log(Car_Array[i]);
-                Destroy(Car_Array[i].transform.gameObject, 0);
+                Car_Array[i].transform.gameObject.SetActive(false);
             }
             
         }
         
         CarCam.enabled = true;
-        // VCam.Follow = cars[0];
-        // VCam.LookAt = cars[0];
+        VCam.Follow = Car_Array[carIndex].transform;
+        VCam.LookAt = Car_Array[carIndex].transform;
         this.gameObject.SetActive(false);
         //Move cam
         // Camera.main.gameObject.transform.position = new Vector3(Car_Array[0].transform.gameObject.transform.position.x + 40,
@@ -174,6 +161,7 @@ public class CameraMovement : MonoBehaviour
         CarCam.enabled = true;
         VCam.LookAt = Car_Array[carIndex].transform;
         VCam.Follow = Car_Array[carIndex].transform;
+        Car_Array[carIndex].keyInIgnition = false;
     }
 
 }

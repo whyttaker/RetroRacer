@@ -140,15 +140,15 @@ public class CarMovement : MonoBehaviour
     }
 
 
-    public void ToggleControl()
-    {
-        if (keyInIgnition)
-        {
-            keyInIgnition = false;
-        }
-        else
-        {
-            keyInIgnition = true;
-        }
-    }
+    // public void ToggleControl()
+    // {
+    //     if (keyInIgnition)
+    //     {
+    //         keyInIgnition = false;
+    //     }
+    //     else
+    //     {
+    //         keyInIgnition = true;
+    //     }
+    // }
 }
