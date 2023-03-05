@@ -11,18 +11,5 @@ public class CorvetteStats : CarMovement
         m_Handling = 50;
         m_Accel = 50;
     }
-  
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

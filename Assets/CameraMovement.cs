@@ -17,11 +17,10 @@ public class CameraMovement : MonoBehaviour
     public Slider AccelSlider;
     public Slider HandleSlider;
 
-
-
     public CinemachineVirtualCamera VCam;
+    public CinemachineVirtualCamera VCamP1;
+    public CinemachineVirtualCamera VCamP2;
 
-    //public Transform[] cars;
     public CarMovement[] Car_Array;
     int carIndex = 0;
 
@@ -31,6 +30,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         carIndex = Car_Array.Length/2;
+        updateSliders();
     }
 
     void Active()
@@ -120,11 +120,7 @@ public class CameraMovement : MonoBehaviour
         VCam.Follow = Car_Array[carIndex].transform;
         VCam.LookAt = Car_Array[carIndex].transform;
         this.gameObject.SetActive(false);
-        //Move cam
-        // Camera.main.gameObject.transform.position = new Vector3(Car_Array[0].transform.gameObject.transform.position.x + 40,
-        //                                                         Car_Array[0].transform.gameObject.transform.position.y + 77,
-        //                                                         Car_Array[0].transform.gameObject.transform.position.z + 1);
-        // Camera.main.gameObject.transform.Rotate(65, 180, 0);
+
 
     }
 
@@ -159,9 +155,11 @@ public class CameraMovement : MonoBehaviour
         }
 
         CarCam.enabled = true;
-        VCam.LookAt = Car_Array[carIndex].transform;
-        VCam.Follow = Car_Array[carIndex].transform;
-        Car_Array[carIndex].keyInIgnition = false;
+        VCamP1.LookAt = Car_Array[carIndex].transform;
+        VCamP1.Follow = Car_Array[carIndex].transform;
+        VCamP2.LookAt = Car_Array[carIndex].transform;
+        VCamP2.Follow = Car_Array[carIndex].transform;
+        this.gameObject.SetActive(false);
     }
 
 }

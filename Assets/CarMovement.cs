@@ -60,6 +60,7 @@ public class CarMovement : MonoBehaviour
 
     public void Start()
     {
+        keyInIgnition = true;
         m_MovementAxisName = "Vertical";
         m_TurnAxisName = "Horizontal";
 
