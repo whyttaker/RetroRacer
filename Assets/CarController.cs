@@ -6,9 +6,9 @@ public class CarController : MonoBehaviour
 {
 
     private Vector3 MoveForce;
-    public float m_Accel = 50;
+    public float m_Accel = 9;
     public float Drag = 0.98f;
-    public float m_Speed = 35;
+    public float m_Speed = 3;
     public float steerAngle = 20;
     public float m_Handling = 2;
     public float m_Boost;
@@ -22,7 +22,7 @@ public class CarController : MonoBehaviour
         transform.position += MoveForce * Time.deltaTime;
 
         float steerInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * steerInput * MoveForce.magnitude * steerAngle * Time.deltaTime);
+        transform.Rotate((Vector3.up * steerInput * MoveForce.magnitude * steerAngle * Time.deltaTime)/2);
 
         MoveForce *= Drag;
         MoveForce = Vector3.ClampMagnitude(MoveForce, m_Speed);

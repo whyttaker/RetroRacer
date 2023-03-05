@@ -4263,7 +4263,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153498581}
-  m_LocalRotation: {x: 0.35218212, y: -0.61316216, z: 0.35218215, w: 0.6131621}
+  m_LocalRotation: {x: 0.35218212, y: -0.6131621, z: 0.3521821, w: 0.6131621}
   m_LocalPosition: {x: 1501.35, y: 64.9, z: -14.309994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4321,11 +4321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314b52db767924f8eb695d37cb5f08b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Accel: 50
+  m_Accel: 3
   Drag: 0.98
-  m_Speed: 35
-  steerAngle: 20
-  m_Handling: 2
+  m_Speed: 9
+  steerAngle: 10
+  m_Handling: 0.5
   m_Boost: 0
   m_BoostMult: 0
   m_Inverted: 0
@@ -6851,7 +6851,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784060570}
-  m_LocalRotation: {x: 0.35218212, y: -0.61316216, z: 0.35218215, w: 0.6131621}
+  m_LocalRotation: {x: 0.35218212, y: -0.6131621, z: 0.3521821, w: 0.6131621}
   m_LocalPosition: {x: 1501.35, y: 64.9, z: -14.309994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
