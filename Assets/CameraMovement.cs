@@ -18,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     public CinemachineVirtualCamera VCam;
 
     //public Transform[] cars;
-    public CarMovement[] Car_Array;
+    public CarController[] Car_Array;
     int carIndex = 0;
 
     public Camera CarCam;

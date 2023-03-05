@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarPowerUpEffects : MonoBehaviour
 {
     [Tooltip("The movement script that will be adjusted by the different power ups.")]
-    public CarMovement m_PlayerMovement;
+    public CarController m_PlayerMovement;
 
     // car speed related member variables
     private float m_SpeedDur = 0f; // both speeds share a timer so they can override each other smoothly
@@ -26,7 +26,7 @@ public class CarPowerUpEffects : MonoBehaviour
 
     public void Awake()
     {
-        m_PlayerMovement = GetComponent<CarMovement>();
+        m_PlayerMovement = GetComponent<CarController>();
         m_BaseSpeed = m_PlayerMovement.m_Speed;
     }
 

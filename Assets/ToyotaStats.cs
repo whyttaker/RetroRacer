@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToyotaStats : CarMovement
+public class ToyotaStats : CarController
 {
 
     public ToyotaStats()
