@@ -11,7 +11,7 @@ public class SpeedDown : MonoBehaviour, IPowerUp
     public float m_EffectDuration = 3f;
 
     [Tooltip("How long the Speed Down power up will live.")]
-    public float m_MaxLifeTime = 5f;
+    public float m_MaxLifeTime = 9999f;
 
     // Start is called before the first frame update
     void Start()
