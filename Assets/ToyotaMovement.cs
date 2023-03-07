@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToyotaMovement : CarController
+public class ToyotaMovement : CarMovement
 {
 
     public ToyotaMovement()

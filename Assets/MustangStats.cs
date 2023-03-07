@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MustangStats : CarController
+public class MustangStats : CarMovement
 {
 
     public MustangStats()
@@ -12,17 +12,4 @@ public class MustangStats : CarController
         m_Accel = 90;
     }
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
