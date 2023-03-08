@@ -34,6 +34,7 @@ public class CameraMovement : MonoBehaviour
     {
         carIndex = Car_Array.Length/2;
         updateSliders();
+        P2Cam.enabled = false;
     }
 
     void Active()

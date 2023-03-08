@@ -10983,7 +10983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1549525771
 Transform:
   m_ObjectHideFlags: 0
@@ -15654,6 +15654,8 @@ MonoBehaviour:
   Sliders: []
   m_Inverted: 0
   m_isDrifting: 0
+  steerAngle: 10
+  Drag: 0.98
 --- !u!54 &4175475806651284226
 Rigidbody:
   m_ObjectHideFlags: 0
