@@ -105,6 +105,7 @@ public class CarMovement : MonoBehaviour
         // Move and turn the tank.
         Move();
         Turn();
+        m_Rigidbody.AddForce(Vector3.down * 9.81f * 10, ForceMode.Acceleration);
     }
 
 
