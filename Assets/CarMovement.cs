@@ -61,8 +61,8 @@ public class CarMovement : MonoBehaviour
     public void Start()
     {
         keyInIgnition = true;
-        m_MovementAxisName = "Vertical";
-        m_TurnAxisName = "Horizontal";
+        m_MovementAxisName = "Vertical" + m_PlayerNumber;
+        m_TurnAxisName = "Horizontal" + m_PlayerNumber;
 
         //m_OriginalPitch = m_MovementAudio.pitch;
     }

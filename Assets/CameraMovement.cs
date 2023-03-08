@@ -20,11 +20,14 @@ public class CameraMovement : MonoBehaviour
     public CinemachineVirtualCamera VCam;
     public CinemachineVirtualCamera VCamP1;
     public CinemachineVirtualCamera VCamP2;
+    
 
     public CarMovement[] Car_Array;
     int carIndex = 0;
 
     public Camera CarCam;
+    public Camera P1Cam;
+    public Camera P2Cam;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +120,10 @@ public class CameraMovement : MonoBehaviour
         }
         
         CarCam.enabled = true;
+      
+        VCamP2.enabled = false;
+        
+        P2Cam.enabled = false;
         VCam.Follow = Car_Array[carIndex].transform;
         VCam.LookAt = Car_Array[carIndex].transform;
         this.gameObject.SetActive(false);
@@ -126,40 +133,53 @@ public class CameraMovement : MonoBehaviour
 
     public void TwoPLayerSelectCar()
     {
+        //GameObject selectedCar = Car_Array[2].transform.parent.gameObject;
+        GameObject secondSelectedCar = Car_Array[4].transform.parent.gameObject;
+        
+        //Car_Array[4].transform.parent.gameObject.GetComponent<ToyotaStats>().m_PlayerNumber = 2;
 
-        //Select the car at Car_Array[index], then delete all other cars
+        //Car_Array[4].transform.parent.gameObject.GetComponent<ToyotaStats>().m_PlayerNumber = 1;
 
-        GameObject selectedCar = Car_Array[carIndex].transform.parent.gameObject;
-        if(carIndex == 0)
-        {
-            GameObject secondSelectedCar = Car_Array[carIndex + 1].transform.parent.gameObject;
 
-        }
-        else
-        {
-            GameObject secondSelectedCar = Car_Array[0].transform.parent.gameObject;
 
-        }
+        //Car_Array[3].transform.parent.gameObject.GetComponent<ToyotaStats>().m_PlayerNumber = 2;
+
+
 
 
 
         //Delete all other cars
         for (int i = Car_Array.Length - 1; i >= 0; i--)
         {
-            if (i != carIndex && i != 0)
+            if (i != 3 && i != 4)
             {
                 Debug.Log(Car_Array[i]);
-                Destroy(Car_Array[i].transform.gameObject, 0);
+                Car_Array[i].transform.gameObject.SetActive(false);
             }
 
         }
 
-        CarCam.enabled = true;
-        VCamP1.LookAt = Car_Array[carIndex].transform;
-        VCamP1.Follow = Car_Array[carIndex].transform;
-        VCamP2.LookAt = Car_Array[carIndex].transform;
-        VCamP2.Follow = Car_Array[carIndex].transform;
+        P1Cam.rect = new Rect(0, 0, 0.5f, 1);
+
+
+
         this.gameObject.SetActive(false);
+        VCam.enabled = false;
+        VCamP1.enabled = false;
+        P1Cam.enabled = true;
+        VCamP1.enabled = true;
+        P2Cam.enabled = true;
+
+        var transform = Car_Array[3].transform;
+        var parent = transform.parent;
+        var gameobject = parent.gameObject;
+        var toyotaStats = gameObject.GetComponent<ToyotaStats>();
+        Debug.Log(toyotaStats);
+
+        Car_Array[3].m_PlayerNumber = 2;
+
+
+        
     }
 
 }
