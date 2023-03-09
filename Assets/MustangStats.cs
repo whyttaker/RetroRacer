@@ -14,7 +14,7 @@ public class MustangStats : CarMovement
 
     public MustangStats()
     {
-        m_Speed = 200;
+        m_Speed = 100;
         m_Handling = 2;
         m_Accel = 90;
     }
@@ -36,7 +36,7 @@ public class MustangStats : CarMovement
         transform.Rotate((Vector3.up * steerInput * MoveForce.magnitude * steerAngle * Time.deltaTime) / 32);
 
         MoveForce *= Drag;
-        MoveForce = Vector3.ClampMagnitude(MoveForce, 130);
+        MoveForce = Vector3.ClampMagnitude(MoveForce, m_Speed);
 
         if (m_isDrifting)
         {

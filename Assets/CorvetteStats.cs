@@ -13,7 +13,7 @@ public class CorvetteStats : CarMovement
 
     public CorvetteStats()
     {
-        m_Speed = 120;
+        m_Speed = 180;
         m_Handling = 50;
         m_Accel = 50;
     }
@@ -35,7 +35,7 @@ public class CorvetteStats : CarMovement
         transform.Rotate((Vector3.up * steerInput * MoveForce.magnitude * steerAngle * Time.deltaTime) / 32);
 
         MoveForce *= Drag;
-        MoveForce = Vector3.ClampMagnitude(MoveForce, 130);
+        MoveForce = Vector3.ClampMagnitude(MoveForce, m_Speed);
 
         if (m_isDrifting)
         {
