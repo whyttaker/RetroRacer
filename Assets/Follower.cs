@@ -23,6 +23,5 @@ public class Follower : MonoBehaviour{
         }else{
             speed = 140;
         }
-        Debug.Log(speed);
     }
 }
