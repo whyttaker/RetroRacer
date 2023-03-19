@@ -2,24 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvertControls : MonoBehaviour, IPowerUp
+public class InvertControls : IPowerUp
 {
     [Tooltip("How long the Invert Controls power up will be effecting the player.")]
     public float m_EffectDuration = 3f;
 
-    [Tooltip("How long the Invert Controls power up will live.")]
-    public float m_MaxLifeTime = 5f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(gameObject, m_MaxLifeTime);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             Destroy(gameObject);
+            CarPowerUpEffects playerPowEff = gameObject.GetComponent<CarPowerUpEffects>();
+            playerPowEff.m_IsInverted = true;
+            playerPowEff.m_InvertDur = m_EffectDuration;
+        }
     }
 
     public float GetValue()

@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPowerUp
+public class IPowerUp : MonoBehaviour
 {
+    [Tooltip("How long a default power up will live.")]
+    public float m_MaxLifeTime = 999f;
 
-    float GetValue(); // return the value associated with the power up (ex: if speed up, how much faster to go)
+    // Start is called before the first frame update
+    void Start()
+    {
+        Destroy(gameObject, m_MaxLifeTime);
+    }
 
-    float GetDuration(); //return how long the power up affects the user in seconds
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            Destroy(gameObject);
+    }
 
 }
