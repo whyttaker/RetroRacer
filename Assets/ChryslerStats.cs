@@ -19,7 +19,7 @@ public class ChryslerStats : CarMovement
     }
 
 
-    public void FixedUpdate()
+    new public void FixedUpdate()
     {
         if (Input.GetButton("Fire1" + m_PlayerNumber) && Input.GetButton("Horizontal" + m_PlayerNumber))
         {
@@ -32,8 +32,14 @@ public class ChryslerStats : CarMovement
         MoveForce += transform.forward * realAcceleration * Input.GetAxis("Vertical" + m_PlayerNumber) * Time.deltaTime;
         transform.position += MoveForce * Time.deltaTime;
 
+        float invertMult = 1f;
+        if (m_Inverted) // invert turn controls if player picked up invert controls power up
+        {
+            invertMult = -1f;
+        }
+
         float steerInput = Input.GetAxis("Horizontal"+ m_PlayerNumber);
-        transform.Rotate((Vector3.up * steerInput * MoveForce.magnitude * steerAngle * Time.deltaTime) / 32);
+        transform.Rotate(invertMult*(Vector3.up * steerInput * MoveForce.magnitude * steerAngle * Time.deltaTime) / 32);
 
         MoveForce *= Drag;
         MoveForce = Vector3.ClampMagnitude(MoveForce, m_Speed);

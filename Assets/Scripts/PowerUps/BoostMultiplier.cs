@@ -15,7 +15,7 @@ public class BoostMultiplier : IPowerUp
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            CarPowerUpEffects playerPowEff = gameObject.GetComponent<CarPowerUpEffects>();
+            CarPowerUpEffects playerPowEff = other.GetComponent<CarPowerUpEffects>();
             playerPowEff.m_IsBoostMult = true;
             playerPowEff.m_BoostMult = m_BoostMultiplier;
             playerPowEff.m_BoostMultDur = m_EffectDuration;

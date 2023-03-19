@@ -111,5 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37653f33e4604114fba09ff21ba29030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoostBonus: 2
-  m_MaxLifeTime: 999999
+  m_MaxLifeTime: 999
+  m_BoostBonus: 30

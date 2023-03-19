@@ -12,7 +12,7 @@ public class InvertControls : IPowerUp
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            CarPowerUpEffects playerPowEff = gameObject.GetComponent<CarPowerUpEffects>();
+            CarPowerUpEffects playerPowEff = other.GetComponent<CarPowerUpEffects>();
             playerPowEff.m_IsInverted = true;
             playerPowEff.m_InvertDur = m_EffectDuration;
         }

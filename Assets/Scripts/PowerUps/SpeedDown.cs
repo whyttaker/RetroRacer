@@ -15,7 +15,7 @@ public class SpeedDown : IPowerUp
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            CarPowerUpEffects playerPowEff = gameObject.GetComponent<CarPowerUpEffects>();
+            CarPowerUpEffects playerPowEff = other.GetComponent<CarPowerUpEffects>();
             playerPowEff.m_IsSpeedDown = true;
             playerPowEff.m_IsSpeedUp = false;
             playerPowEff.m_SpeedDur = m_EffectDuration;

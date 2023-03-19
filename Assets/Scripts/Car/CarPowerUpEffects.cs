@@ -48,7 +48,6 @@ public class CarPowerUpEffects : MonoBehaviour
                 // slow down the car
                 float newSpeed = m_BaseSpeed / m_SpeedMult;
                 m_PlayerMovement.m_Speed = newSpeed;
-                Debug.Log(newSpeed);
             }
 
         }
