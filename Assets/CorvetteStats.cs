@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CorvetteStats : CarMovement
 {
+    public GameObject car;
     private Vector3 MoveForce;
     public float steerAngle = 10;
     public float Drag = 0.98f;
@@ -20,6 +21,11 @@ public class CorvetteStats : CarMovement
 
     new public void FixedUpdate()
     {
+        if(car.transform.position.y < -201){
+            car.transform.position = new Vector3(1413, 15, -9);
+            car.transform.eulerAngles = new Vector3(0f, -90f, 0f);
+        }
+
         if (Input.GetButton("Fire1" + m_PlayerNumber) && Input.GetButton("Horizontal" + m_PlayerNumber))
         {
             m_isDrifting = true;
