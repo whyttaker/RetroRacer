@@ -24,6 +24,7 @@ public class CorvetteStats : CarMovement
         if(car.transform.position.y < -201){
             car.transform.position = new Vector3(1413, 15, -9);
             car.transform.eulerAngles = new Vector3(0f, -90f, 0f);
+            // MoveForce = new Vector3(0f, 0f, 0f);
         }
 
         if (Input.GetButton("Fire1" + m_PlayerNumber) && Input.GetButton("Horizontal" + m_PlayerNumber))

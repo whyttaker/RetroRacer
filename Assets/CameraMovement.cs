@@ -13,7 +13,6 @@ public class CameraMovement : MonoBehaviour
 
 
     public GameObject currentCar;
-    private Quaternion originalRotationValue;
 
     public Slider SpeedSlider;
     public Slider AccelSlider;
@@ -36,7 +35,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         carIndex = Car_Array.Length/2;
-        P2Cam.enabled = false;
+        //P2Cam.enabled = false;
     }
 
     void Active()
@@ -51,7 +50,6 @@ public class CameraMovement : MonoBehaviour
 
     public void CameraAdvance()
     {
-        
         Camera.main.gameObject.transform.Translate(-16, -5, 51);
         Camera.main.gameObject.transform.Rotate(5, 51, 0);
     }
@@ -111,6 +109,9 @@ public class CameraMovement : MonoBehaviour
 
     public void SelectCar()
     {
+        VCamP2.enabled = false;
+        P2Cam.enabled = false;
+        CarCam.enabled = true;
 
         //Select the car at Car_Array[index], then delete all other cars
 
@@ -125,19 +126,12 @@ public class CameraMovement : MonoBehaviour
                 Car_Array[i].transform.gameObject.SetActive(false);
             }
         }
-
-        //r_script.GetComponent<RespawnScript>().setPlayer(selectedCar.transform);
-        //Debug.Log("I'm unity, I'm a little");
-        
-        CarCam.enabled = true;
       
-        VCamP2.enabled = false;
+        // VCamP2.enabled = false;
         
-        P2Cam.enabled = false;
+        // P2Cam.enabled = false;
         VCam.Follow = Car_Array[carIndex].transform;
         VCam.LookAt = Car_Array[carIndex].transform;
-
-        originalRotationValue = currentCar.transform.rotation;
 
         this.gameObject.SetActive(false);
 
@@ -148,17 +142,6 @@ public class CameraMovement : MonoBehaviour
     {
         //GameObject selectedCar = Car_Array[2].transform.parent.gameObject;
         GameObject secondSelectedCar = Car_Array[4].transform.parent.gameObject;
-        
-        //Car_Array[4].transform.parent.gameObject.GetComponent<ToyotaStats>().m_PlayerNumber = 2;
-
-        //Car_Array[4].transform.parent.gameObject.GetComponent<ToyotaStats>().m_PlayerNumber = 1;
-
-
-
-        //Car_Array[3].transform.parent.gameObject.GetComponent<ToyotaStats>().m_PlayerNumber = 2;
-
-
-
 
 
         //Delete all other cars
@@ -174,14 +157,16 @@ public class CameraMovement : MonoBehaviour
 
         P1Cam.rect = new Rect(0, 0, 0.5f, 1);
 
-
-
-        this.gameObject.SetActive(false);
         VCam.enabled = false;
         VCamP1.enabled = false;
         P1Cam.enabled = true;
         VCamP1.enabled = true;
+        P2Cam.gameObject.SetActive(true);
         P2Cam.enabled = true;
+
+
+        this.gameObject.SetActive(false);
+        
 
         var transform = Car_Array[3].transform;
         var parent = transform.parent;
@@ -195,10 +180,5 @@ public class CameraMovement : MonoBehaviour
         
     }
     
-    //Somehow, Some way, this refuses to work
-    public void Respawn(Transform RespawnPoint){
-        currentCar.transform.position = new Vector3(RespawnPoint.transform.position.x, 40, RespawnPoint.transform.position.z);
-        currentCar.transform.rotation = originalRotationValue;
-    }
 
 }
