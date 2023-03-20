@@ -115,7 +115,7 @@ public class CameraMovement : MonoBehaviour
         //Select the car at Car_Array[index], then delete all other cars
 
         GameObject selectedCar = Car_Array[carIndex].transform.parent.gameObject;
-        //Debug.Log("We fucking selected this jawn");
+        //Debug.Log("We  selected this jawn");
 
         //Delete cars
         for (int i=Car_Array.Length-1; i >=0 ; i--)
@@ -127,7 +127,7 @@ public class CameraMovement : MonoBehaviour
         }
 
         //r_script.GetComponent<RespawnScript>().setPlayer(selectedCar.transform);
-        //Debug.Log("I'm unity, I'm a little bitch");
+        //Debug.Log("I'm unity, I'm a little");
         
         CarCam.enabled = true;
       
@@ -197,7 +197,7 @@ public class CameraMovement : MonoBehaviour
     
     //Somehow, Some way, this refuses to work
     public void Respawn(Transform RespawnPoint){
-        currentCar.transform.position = new Vector3(RespawnPoint.transform.position.x, 35, RespawnPoint.transform.position.z);
+        currentCar.transform.position = new Vector3(RespawnPoint.transform.position.x, 40, RespawnPoint.transform.position.z);
         currentCar.transform.rotation = originalRotationValue;
     }
 
