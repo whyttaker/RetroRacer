@@ -11,6 +11,7 @@ public class ChryslerStats : CarMovement
     public float Drag = 0.98f;
     private float realAcceleration = 180f;
     private float traction = 0.5f;
+    public string title = "Chrysler";
     
     public ChryslerStats()
     {
