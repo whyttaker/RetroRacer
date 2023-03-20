@@ -28,7 +28,7 @@ public class CarMovement : MonoBehaviour
     public float m_TurnInputValue;
     public float m_OriginalPitch;
 
-    public Slider BoostSlider;
+    //public Slider BoostSlider;
     
 
     public GameObject[] Sliders;
@@ -40,7 +40,6 @@ public class CarMovement : MonoBehaviour
     public void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        Sliders = GameObject.FindGameObjectsWithTag("Boost");
     }
 
 
@@ -60,6 +59,7 @@ public class CarMovement : MonoBehaviour
 
     public void Start()
     {
+        //Sliders = GameObject.FindGameObjectsWithTag("Boost");
         keyInIgnition = true;
         m_MovementAxisName = "Vertical" + m_PlayerNumber;
         m_TurnAxisName = "Horizontal" + m_PlayerNumber;
@@ -75,8 +75,8 @@ public class CarMovement : MonoBehaviour
         if(m_isDrifting){
             m_Boost += m_BoostVal * m_BoostMult; // default mult is 1f, changes if picks up boost multiplier power up :D
         }
-        BoostSlider.value = m_Boost;
-        BoostSlider.maxValue = m_MaxBoost;
+        //BoostSlider.value = m_Boost;
+        //BoostSlider.maxValue = m_MaxBoost;
         //EngineAudio();
     }
 

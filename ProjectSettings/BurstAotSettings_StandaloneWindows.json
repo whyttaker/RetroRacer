@@ -4,7 +4,7 @@
     "EnableBurstCompilation": false,
     "EnableOptimisations": true,
     "EnableSafetyChecks": false,
-    "EnableDebugInAllBuilds": false,
+    "EnableDebugInAllBuilds": true,
     "UsePlatformSDKLinker": false,
     "CpuMinTargetX32": 0,
     "CpuMaxTargetX32": 0,
