@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.UI;
 
+
 public class CameraMovement : MonoBehaviour
 {
     public float rightMoves = 0;
@@ -12,6 +13,7 @@ public class CameraMovement : MonoBehaviour
 
 
     public GameObject currentCar;
+    private Quaternion originalRotationValue;
 
     public Slider SpeedSlider;
     public Slider AccelSlider;
@@ -23,6 +25,7 @@ public class CameraMovement : MonoBehaviour
     
 
     public CarMovement[] Car_Array;
+
     int carIndex = 0;
 
     public Camera CarCam;
@@ -51,6 +54,10 @@ public class CameraMovement : MonoBehaviour
         
         Camera.main.gameObject.transform.Translate(-16, -5, 51);
         Camera.main.gameObject.transform.Rotate(5, 51, 0);
+    }
+
+    public GameObject getCar(){
+        return currentCar;
     }
 
     public void CameraReverse()
@@ -108,6 +115,7 @@ public class CameraMovement : MonoBehaviour
         //Select the car at Car_Array[index], then delete all other cars
 
         GameObject selectedCar = Car_Array[carIndex].transform.parent.gameObject;
+        //Debug.Log("We fucking selected this jawn");
 
         //Delete cars
         for (int i=Car_Array.Length-1; i >=0 ; i--)
@@ -116,8 +124,10 @@ public class CameraMovement : MonoBehaviour
             {
                 Car_Array[i].transform.gameObject.SetActive(false);
             }
-            
         }
+
+        //r_script.GetComponent<RespawnScript>().setPlayer(selectedCar.transform);
+        //Debug.Log("I'm unity, I'm a little bitch");
         
         CarCam.enabled = true;
       
@@ -126,6 +136,9 @@ public class CameraMovement : MonoBehaviour
         P2Cam.enabled = false;
         VCam.Follow = Car_Array[carIndex].transform;
         VCam.LookAt = Car_Array[carIndex].transform;
+
+        originalRotationValue = currentCar.transform.rotation;
+
         this.gameObject.SetActive(false);
 
 
@@ -180,6 +193,12 @@ public class CameraMovement : MonoBehaviour
 
 
         
+    }
+    
+    //Somehow, Some way, this refuses to work
+    public void Respawn(Transform RespawnPoint){
+        currentCar.transform.position = new Vector3(RespawnPoint.transform.position.x, 35, RespawnPoint.transform.position.z);
+        currentCar.transform.rotation = originalRotationValue;
     }
 
 }

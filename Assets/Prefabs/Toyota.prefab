@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 746611163043600170}
-  - component: {fileID: 746611163043600169}
   - component: {fileID: 746611163043600168}
   - component: {fileID: 1661712895}
   - component: {fileID: 2090388970}
@@ -36,34 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
---- !u!114 &746611163043600169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746611163043600171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0dc804276014f329ea9e5f952c3358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerNumber: 1
-  m_Speed: 5
-  m_TurnSpeed: 180
-  m_Accel: 1
-  m_Handling: 1
-  m_PitchRange: 0.2
-  boost: 0
-  m_MovementAxisName: 
-  m_TurnAxisName: 
-  m_Rigidbody: {fileID: 746611163043600168}
-  m_MovementInputValue: 0
-  m_TurnInputValue: 0
-  m_OriginalPitch: 0
-  BoostSlider: {fileID: 0}
-  Sliders: []
-  m_Inverted: 0
 --- !u!54 &746611163043600168
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -105,7 +76,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689c57014b295f64ba9094aa0ac019b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerMovement: {fileID: 746611163043600169}
+  m_PlayerMovement: {fileID: 0}
+  m_SpeedDur: 0
+  m_IsSpeedUp: 0
+  m_IsSpeedDown: 0
+  m_SpeedMult: 1
+  m_InvertDur: 0
+  m_IsInverted: 0
+  m_BoostMultDur: 0
+  m_IsBoostMult: 0
+  m_BoostMult: 1
 --- !u!1 &854785665812442081
 GameObject:
   m_ObjectHideFlags: 0
