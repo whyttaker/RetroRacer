@@ -34,6 +34,13 @@ public class ToyotaStats : CarMovement
         else
             m_isDrifting = false;
 
+        if (Input.GetButton("Fire2" + m_PlayerNumber))
+        {
+            m_isBoosting = true;
+        }
+        else
+            m_isBoosting = false;
+
 
         MoveForce += transform.forward * realAcceleration * Input.GetAxis("Vertical" + m_PlayerNumber) * Time.deltaTime;
         transform.position += MoveForce * Time.deltaTime;
@@ -58,6 +65,16 @@ public class ToyotaStats : CarMovement
         {
             MoveForce = transform.forward * MoveForce.magnitude;
         }
+
+        if (m_isBoosting && BoostSlider.value>0)
+        {
+            MoveForce = transform.forward * MoveForce.magnitude * 2;
+        }
+        else
+        {
+            MoveForce = transform.forward * MoveForce.magnitude;
+        }
+
         m_Rigidbody.AddForce(Vector3.down * 9.81f * 10, ForceMode.Acceleration);
     }
 
