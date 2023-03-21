@@ -14,11 +14,14 @@ public class BoostMultiplier : IPowerUp
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
             CarPowerUpEffects playerPowEff = other.GetComponent<CarPowerUpEffects>();
-            playerPowEff.m_IsBoostMult = true;
-            playerPowEff.m_BoostMult = m_BoostMultiplier;
-            playerPowEff.m_BoostMultDur = m_EffectDuration;
+            if (playerPowEff)
+            { // if has script -> apply power up effects
+                Destroy(gameObject);
+                playerPowEff.m_IsBoostMult = true;
+                playerPowEff.m_BoostMult = m_BoostMultiplier;
+                playerPowEff.m_BoostMultDur = m_EffectDuration;
+            }
         }
     }
 

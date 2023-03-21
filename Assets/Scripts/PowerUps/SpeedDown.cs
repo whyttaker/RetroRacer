@@ -14,12 +14,15 @@ public class SpeedDown : IPowerUp
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
             CarPowerUpEffects playerPowEff = other.GetComponent<CarPowerUpEffects>();
-            playerPowEff.m_IsSpeedDown = true;
-            playerPowEff.m_IsSpeedUp = false;
-            playerPowEff.m_SpeedDur = m_EffectDuration;
-            playerPowEff.m_SpeedMult = m_SlowMultiplier;
+            if (playerPowEff)
+            { // if has script -> apply effects
+                Destroy(gameObject);
+                playerPowEff.m_IsSpeedDown = true;
+                playerPowEff.m_IsSpeedUp = false;
+                playerPowEff.m_SpeedDur = m_EffectDuration;
+                playerPowEff.m_SpeedMult = m_SlowMultiplier;
+            }
         }
     }
 

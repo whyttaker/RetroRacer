@@ -11,10 +11,14 @@ public class InvertControls : IPowerUp
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            
             CarPowerUpEffects playerPowEff = other.GetComponent<CarPowerUpEffects>();
-            playerPowEff.m_IsInverted = true;
-            playerPowEff.m_InvertDur = m_EffectDuration;
+            if (playerPowEff)
+            { //if has script -> apply the power up effects
+                Destroy(gameObject);
+                playerPowEff.m_IsInverted = true;
+                playerPowEff.m_InvertDur = m_EffectDuration;
+            }
         }
     }
 

@@ -14,9 +14,13 @@ public class BoostBonus : IPowerUp
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
             CarPowerUpEffects playerPowEff = other.GetComponent<CarPowerUpEffects>();
-            playerPowEff.m_PlayerMovement.m_Boost += m_BoostBonus * playerPowEff.m_BoostMult;
+            if (playerPowEff)
+            { //if has script -> apply power up effects
+                Destroy(gameObject);
+                playerPowEff.m_PlayerMovement.m_Boost += m_BoostBonus * playerPowEff.m_BoostMult;
+            }
+           
         }
     }
 

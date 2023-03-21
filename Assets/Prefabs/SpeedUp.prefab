@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4764151185654501572}
   - component: {fileID: 4764151185654501573}
   - component: {fileID: 4764151185654501574}
+  - component: {fileID: -7151280290961600215}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: PowerUp
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ecae96434bd89944fb3900e91c16540e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,6 +111,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbc6a5a8abaa314ba031642e4172c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MaxLifeTime: 999
   m_SpeedMultiplier: 2
   m_EffectDuration: 3
-  m_MaxLifeTime: 999999
+--- !u!114 &-7151280290961600215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764151185654501575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8261e6f2e5fac44da64da2b23939e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorDefault: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  colorSelected: {r: 0.25, g: 0.65, b: 0.8, a: 1}
