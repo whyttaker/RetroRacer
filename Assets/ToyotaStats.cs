@@ -5,7 +5,6 @@ using UnityEngine;
 public class ToyotaStats : CarMovement
 {
     public GameObject car;
-
     private Vector3 MoveForce;
     public float steerAngle = 10;
     public float Drag = 0.98f;
@@ -25,8 +24,6 @@ public class ToyotaStats : CarMovement
             car.transform.position = new Vector3(1413, 15, -9);
             car.transform.eulerAngles = new Vector3(0f, 270f, 0f);
         }
-
-
         if (Input.GetButton("Fire1" + m_PlayerNumber) && Input.GetButton("Horizontal" + m_PlayerNumber))
         {
             m_isDrifting = true;
@@ -57,6 +54,11 @@ public class ToyotaStats : CarMovement
         MoveForce *= Drag;
         MoveForce = Vector3.ClampMagnitude(MoveForce, m_Speed);
 
+        if (m_isBoosting && BoostSlider.value>0)
+        {
+            MoveForce = transform.forward * MoveForce.magnitude * 2;
+        }
+
         if (m_isDrifting)
         {
             MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, traction * Time.deltaTime) * MoveForce.magnitude;
@@ -66,16 +68,9 @@ public class ToyotaStats : CarMovement
             MoveForce = transform.forward * MoveForce.magnitude;
         }
 
-        if (m_isBoosting && BoostSlider.value>0)
-        {
-            MoveForce = transform.forward * MoveForce.magnitude * 2;
-        }
-        else
-        {
-            MoveForce = transform.forward * MoveForce.magnitude;
-        }
+        
 
-        m_Rigidbody.AddForce(Vector3.down * 9.81f * 10, ForceMode.Acceleration);
+        m_Rigidbody.AddForce(Vector3.down * 3.0f * 10, ForceMode.Acceleration);
     }
 
 

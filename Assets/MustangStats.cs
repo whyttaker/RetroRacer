@@ -33,6 +33,12 @@ public class MustangStats : CarMovement
         else
             m_isDrifting = false;
 
+        if (Input.GetButton("Fire2" + m_PlayerNumber))
+        {
+            m_isBoosting = true;
+        }
+        else
+            m_isBoosting = false;
 
         MoveForce += transform.forward * realAcceleration * Input.GetAxis("Vertical" + m_PlayerNumber) * Time.deltaTime;
         transform.position += MoveForce * Time.deltaTime;
@@ -49,6 +55,12 @@ public class MustangStats : CarMovement
         MoveForce *= Drag;
         MoveForce = Vector3.ClampMagnitude(MoveForce, m_Speed);
 
+
+        if (m_isBoosting && BoostSlider.value>0)
+        {
+            MoveForce = transform.forward * MoveForce.magnitude * 2;
+        }
+        
         if (m_isDrifting)
         {
             MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, traction * Time.deltaTime) * MoveForce.magnitude;
@@ -57,7 +69,7 @@ public class MustangStats : CarMovement
         {
             MoveForce = transform.forward * MoveForce.magnitude;
         }
-        m_Rigidbody.AddForce(Vector3.down * 9.81f * 10, ForceMode.Acceleration);
+        m_Rigidbody.AddForce(Vector3.down * 2f * 10, ForceMode.Acceleration);
     }
 
 }
