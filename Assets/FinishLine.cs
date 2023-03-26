@@ -17,8 +17,6 @@ public class FinishLine : MonoBehaviour
         
         if(other.tag == "Player")
         {
-            Debug.Log("Finished!");
-            //Debug.Log(other.GetComponentInParent<CarMovement>().m_PlayerNumber);
             int screenToDisplay = other.GetComponentInParent<CarMovement>().m_PlayerNumber;
             gameOverScreen.SetActive(true);
 
@@ -26,13 +24,11 @@ public class FinishLine : MonoBehaviour
             if (screenToDisplay == 1)
             {
                 player1Finish.SetActive(true);
-                Debug.Log("Player 1 Won");
 
             }
             else
             {
                 player2Finish.SetActive(true);
-                Debug.Log("Player 2 Won");
             }
 
             

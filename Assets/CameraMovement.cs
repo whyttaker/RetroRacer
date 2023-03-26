@@ -70,8 +70,6 @@ public class CameraMovement : MonoBehaviour
         float z = Camera.main.gameObject.transform.position.z;
         float x = Camera.main.gameObject.transform.position.x;
         float y = Camera.main.gameObject.transform.position.y;
-        Debug.Log("Current X: " + x + " Current Y: " + y + " Current Z: " + z);
-        Debug.Log("cararraylen = " + Car_Array.Length );
         if (carIndex > 0)
         {
             Camera.main.gameObject.transform.Translate(-12, 0, 0);
@@ -86,8 +84,6 @@ public class CameraMovement : MonoBehaviour
         float z = Camera.main.gameObject.transform.position.z;
         float x = Camera.main.gameObject.transform.position.x;
         float y = Camera.main.gameObject.transform.position.y;
-        Debug.Log("Current X: " + x + " Current Y: " + y + " Current Z: " + z);
-        Debug.Log("cararraylen = " + Car_Array.Length );
         if (carIndex < Car_Array.Length-1)
         {
             Camera.main.gameObject.transform.Translate(12, 0, 0);
@@ -116,7 +112,6 @@ public class CameraMovement : MonoBehaviour
         //Select the car at Car_Array[index], then delete all other cars
 
         GameObject selectedCar = Car_Array[carIndex].transform.parent.gameObject;
-        //Debug.Log("We  selected this jawn");
 
         //Delete cars
         for (int i=Car_Array.Length-1; i >=0 ; i--)
@@ -149,7 +144,6 @@ public class CameraMovement : MonoBehaviour
         {
             if (i != 3 && i != 4)
             {
-                Debug.Log(Car_Array[i]);
                 Car_Array[i].transform.gameObject.SetActive(false);
             }
 
@@ -172,7 +166,6 @@ public class CameraMovement : MonoBehaviour
         var parent = transform.parent;
         var gameobject = parent.gameObject;
         var toyotaStats = gameObject.GetComponent<ToyotaStats>();
-        Debug.Log(toyotaStats);
 
         Car_Array[3].m_PlayerNumber = 2;
 

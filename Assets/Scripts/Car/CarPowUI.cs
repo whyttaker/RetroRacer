@@ -29,7 +29,6 @@ public class CarPowUI : MonoBehaviour
         { //if has text box associated w inverted controls
             if (playerMovement.m_Inverted)
             {
-                Debug.Log("Inverted");
                 invertedText.text = "! INVERTED !";
             }
             else
@@ -42,7 +41,6 @@ public class CarPowUI : MonoBehaviour
         { // if has a text box associated w the boost multiplier
             if (playerMovement.m_BoostMult > 1f)
             {
-                Debug.Log("Boosting: " + playerMovement.m_BoostMult.ToString());
                 boostMultText.text = "2x Boost";
             }
             else

@@ -46,7 +46,6 @@ public class MustAI : MonoBehaviour
         }else if(distanceBetweenObjects > 50){
             speed = 200;
         }
-        Debug.Log(distanceBetweenObjects);
         
     }
 }

@@ -67,10 +67,7 @@ public class ToyotaStats : CarMovement
         {
             MoveForce = transform.forward * MoveForce.magnitude;
         }
-
-        
-
-        m_Rigidbody.AddForce(Vector3.down * 3.0f * 10, ForceMode.Acceleration);
+        m_Rigidbody.AddForce(Vector3.down * 7f * 10, ForceMode.Acceleration);
     }
 
 
